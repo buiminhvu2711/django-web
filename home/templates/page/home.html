@@ -1,0 +1,31 @@
+4{% extends "page/header.html" %}
+{% block title %}
+{% endblock  %}
+{% block content %}
+  {% for home in Homes %}
+        <div class="container">
+              <div class="col-lg-12">
+                </br>
+                <div class="col-lg-5">
+                  <img src="{{ home.img_nguongoc.url }}" class="w3-hover-opacity" alt="image" style="width:100%;cursor:zoom-in" onclick="onClick(this)" >
+                    <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                        <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+                        <div class="w3-modal-content w3-animate-zoom">
+                          <img id="img01" style="width:100%">
+                        </div>
+                    </div>
+                </div>             
+                <div class="col-lg-7">                
+                    <h1 class="w3-panel w3-border-bottom w3-hover-border-red"><a href="{% url 'viewDetailtc' home.id %}">{{home.tenloai}}</a></h1>                 
+                    <p>{{home.nguongoc}}</p>                
+                </div>  
+              </div>
+              <script>
+                function onClick(element) {
+                  document.getElementById("img01").src = element.src;
+                  document.getElementById("modal01").style.display = "block";
+                }
+            </script>     
+        </div>
+  {% endfor %}
+{% endblock  %}

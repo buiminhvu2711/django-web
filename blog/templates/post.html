@@ -1,0 +1,39 @@
+{% extends "page/header.html" %}
+
+{% block title %}
+{{post.ten}}
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="{{ product.hinhanh.url }}" alt="image" style="width:100%;margin-top:5%">
+            </div>
+            <div class="col-lg-6">
+                <h2 style="color:red">{{product.ten}}</h2>
+                <h4>{{product.noidung}}</h4>
+                <h3 style="color:rgb(51, 250, 44)">{{product.ngaydang|date:'d-m-y'}}</h3>
+                {% load humanize %}
+                <h3 style="color:red">{{product.gia|intcomma}} vnđ</h3>
+                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Add to cart">
+                </form>
+                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="fb-comments" data-href="http://localhost:8000/blog/{{product.id}}" data-numposts="5"></div>
+    </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+{% endblock content %}

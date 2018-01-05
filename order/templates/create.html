@@ -1,0 +1,47 @@
+{% extends "page/header.html" %}
+
+{% block title %}
+  Checkout
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+{% load humanize %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="order-input">
+            <h2>Nhập thông tin đặt hàng</h2>
+            <form action="." method="post" class="order-form">
+                {% csrf_token %}
+                <p><label for="id_hoten">Họ tên:</label> <input type="text" name="hoten" maxlength="150" required id="id_hoten" value="{{user.last_name}}" /></p>
+                <p><label for="id_email">Email:</label> <input type="email" name="email" maxlength="254" required id="id_email" value="{{user.email}}"/></p>
+                <p><label for="id_diachi">Địa chỉ:</label> <input type="text" name="diachi" maxlength="250" required id="id_diachi" /></p>
+                <p><label for="id_dienthoai">Điện thoại:</label> <input type="text" name="dienthoai" maxlength="20" required id="id_dienthoai" /></p>
+                <p><label for="id_thanhpho">Thành phố:</label> <input type="text" name="thanhpho" maxlength="100" required id="id_thanhpho" /></p>
+                <div class="container">
+                  <div class="thanhtoan">
+                      <div class="col-lg-6">
+                          <p><img style="width:30%" src="http://file.hstatic.net/1000107117/article/tratientainha.jpg"><input type="radio" name="hinhthucthanhtoan" required id="id_hinhthucthanhtoan" value="Thanh toán otp" select="Thanh toán otp" checked ></p>
+                          <p><img style="width:30%" src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png" border="0" /><input type="radio" name="hinhthucthanhtoan" id="id_hinhthucthanhtoan" value="Thanh toán Trực tuyến" select="Thanh toán trực tuyến"></p>   
+                          <input type="submit" value="Đặt hàng" class="input"> 
+                          <a href="/cart/" class="input">Quay lại</a>                            
+                      </div>                                                      
+                  </div>           
+                </div>                                 
+              </form>
+        </div>         
+      </div>
+      <div class="col-lg-6">
+        <div class="order-info">
+          <h3>Đơn hàng của bạn </h3>
+          <p>Thông tin giá tiền:</p>
+            {% for item in cart %}
+                <p> {{ item.quantity }} x {{ item.product.ten }}<span>={{ item.total_price|intcomma }}vnđ</span></p>          
+            {% endfor %}
+          <p>Tổng cộng: {{ cart.get_total_price|intcomma }}vnđ</p>
+        </div>                 
+      </div>
+    </div>
+  </div>
+{% endblock %}

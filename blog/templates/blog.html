@@ -1,0 +1,63 @@
+{% extends "page/header.html" %}
+
+{% block content %}
+{% load staticfiles %}
+{% load humanize %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="container">
+    <div class="Khungchucnang">
+        <form method="GET" action=''>
+            <label>Các giống chó </label>
+            <select name="t">
+                <option disabled selected value> -- Chọn giống cần tìm -- </option>
+                {% for category in Categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}  
+            </select>
+            <input class="inputName" type="text" name='q' placeholder="Nhập tên cần tìm" value="{{ request.GET.q }}" onfocus="this.value=''"/>
+            <input type="submit" value="Tìm"  style="background: red;color:white;border-radius:5px;border-color: red;width: 10%"/>
+        </form> 
+    </div>                   
+    {% for data in Blogs %}
+    <div class="col-lg-4" style="padding-left:0;padding-right:1px;">
+        <div class="Khung_product">
+                <img src="{{ data.hinhanh.url }}" alt="image" style="" class="image">
+                <div class="overplay">
+                    <div class="text" style="width:100%">
+                        <h3 class="name_product" style="color:rgb(33, 223, 65)"><a href="/blog/{{data.id}}">{{data.ten}}</a></h3>
+                        <p><h3 style="color: red">{{data.gia|intcomma}} vnđ</h3>
+                            Ngày bán:{{data.ngaydang|date:'d-m-y'}}
+                         </p>                                     
+                    </div>
+                </div> 
+        </div>          
+    </div>
+    {% endfor %}
+</div>
+<div class="container">
+        <div class="pagination">
+                <span class="step-links">
+                    {% if Blogs.has_previous %}
+                        <a href="?page={{ Blogs.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ Blogs.number }} of {{ Blogs.paginator.num_pages }}.
+                    </span>
+            
+                    {% if Blogs.has_next %}
+                        <a href="?page={{ Blogs.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+</div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+{% endblock content %}

@@ -1,0 +1,225 @@
+﻿body {
+    font-family: "Lato", sans-serif;
+}
+.hinhnen{
+    background-image:url('{% static "image/hinhnen-2.jpg" %}');
+    width: 100%;
+}
+.logo{
+    width: 100%;
+    height: 100%;
+    background: #17C03C;
+}
+.logo img{
+    width:100%;
+    height:40%;
+}
+.menu-icon:hover {
+    font-size: 35px;
+    opacity: 1;
+    text-decoration: none;
+}
+.menu-icon-gg:hover {
+    color: red;
+}
+.menu-icon-fb:hover {
+    color: #090876;
+}
+.menu-icon-insta:hover {
+    color: #ad20c8;
+}
+.menu-icon-insta:hover {
+    color: #ad20c8;
+}
+.menu-icon-twitter:hover {
+    color: #4da0f1;
+}
+.menu a:hover{
+    text-decoration: none;
+}
+.icon-size {
+    text-align: center;
+    font-size: 30px;
+}
+.icon-distance {
+    margin-top: 5%;
+    /*khoang cach giu cac icon*/
+}
+.Register input{
+    width: 40%;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+.Register p label{
+    color: black;
+}
+.menu a{
+    margin-top: 5%;
+    margin-left:20%;
+}
+.menu:hover{
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #dadfe4
+}
+
+buttonloai input:hover{
+   background-color: #9ea2a3
+}
+btntim{
+    border-radius: 5px;
+    background: red;
+    color: white;
+}
+btntim:hover{
+    background: #9ea2a3;
+    color: black;
+}
+.inputName{
+    border-radius: 5px;
+}
+.Khungchucnang{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.Khung_product{
+    border-top: 5px solid;
+    margin-bottom: 1%;
+    border-top-color:red;
+    margin-left:0%;
+}
+.Khung_product img{
+    width: 100%;
+    height: 300px;
+}
+.name_product a:hover{
+    text-decoration: none;
+}
+.logo_user a:hover{
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Khung giỏ hang */
+.order{
+    margin-left: 1%;
+}
+.table{
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: red;
+}
+.table th{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+}
+.table td{
+    border: 1px red solid;
+}
+.text-left{
+    float: left;
+}
+.text-left a {
+    border: 1px solid;
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(224, 14, 32);
+    border-radius: 5px;
+    color: white
+}
+.text-left a:hover{
+    text-decoration: none;
+}
+
+/* Khung order */
+.order-input{
+    border: 5px solid red;
+    margin-top: 1%;
+    border-radius: 5px;
+    margin-left: 1%;
+    width: 100%;
+    height: auto;
+    max-height: 800px;    
+}
+.order-input h2{
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    padding-top: 15px;
+    margin-top: 0%;
+    padding-bottom: 5px;
+}
+.order-input p>input{
+    margin-right:40%;
+    border-radius: 5px;
+    float: right;
+}
+.order-input label{
+    margin-left: 5%;
+}
+.order-input a{
+    background-color: #17C03C;
+    color: white;
+    padding: 15px 15px 15px 15px;
+    float: left;
+    margin-top: 1%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 20%;
+}
+.order-input a:hover{
+    background-color: #9ea2a3;
+    color: black;
+}
+.input{
+    color:white;
+    background-color: red;
+    border-color: red;
+    border-radius: 5px;
+    padding: 15px 15px 12px 15px;
+    font-weight: bold;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 10px;
+}
+.input:hover{
+    color: black;
+    background-color: #9ea2a3;
+    text-decoration: none;
+}
+.order-info{
+    border: 5px solid red;
+    width: 80%;
+    border-radius: 5px;
+    float: left;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+.order-info h3 {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding-top: 15px;
+    margin-top: 0%;
+}
+.order-info p {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin-left: 1%;
+}
+.thanhtoan input a{
+    margin-top: 5%;
+    float: left;
+    margin-right: 5%;
+}
+.thanhtoan p>input{
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    float: right;
+    margin-right: 60%;
+    margin-top: 5%;
+}

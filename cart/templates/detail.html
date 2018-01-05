@@ -1,0 +1,56 @@
+{% extends "page/header.html" %}
+{% load static %}
+
+{% block title %}
+  Your shopping cart
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/MyCss.css' %}" >
+{% load staticfiles %}
+{% load humanize %}
+  <div class="container">
+    <h1>Giỏ hàng của bạn</h1>
+    <div class="order">
+        <table class="table" border="3">
+            <thead>
+              <tr style="background-color: red">
+                <th>Hình ảnh </th>
+                <th>Sản phẩm</th>
+                <th>Số lượng </th>
+                <th>Xóa</th>
+                <th>Đơn giá</th>                
+                <th>Tổng Giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in cart %}
+                {% with product=item.product %}
+                  <tr>
+                    <td>
+                      <a href="{{ product.get_absolute_url }}">
+                        <img src="{% if product.hinhanh %}{{ product.hinhanh.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">                    
+                      </a>
+                    </td>
+                    <td>{{ product.ten }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{% url "cart:cart_remove" product.id %}">Bỏ</a></td>
+                    <td>{{ item.price|intcomma }}vnđ</td>
+                    <td>{{ item.total_price|intcomma}}vnđ</td>
+                  </tr>
+                {% endwith %}
+              {% endfor %}
+              <tr class="total">
+                <td>Tổng giá đơn hàng</td>
+                <td colspan="4"></td>
+                <td class="num">{{ cart.get_total_price|intcomma }}vnđ</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-left">
+            <a href="{% url "blog:list" %}">Tiếp tục mua sắm</a>
+            <a href="{% url "order:order_create" %}">Xem Đơn Hàng</a>
+          </p>
+        </div>
+    </div>   
+{% endblock %}
