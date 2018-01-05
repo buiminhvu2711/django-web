@@ -38,15 +38,13 @@
         <div class="pagination">
                 <span class="step-links">
                     {% if Blogs.has_previous %}
-                        <a href="?page={{ Blogs.previous_page_number }}">previous</a>
-                    {% endif %}
-            
+                        <a href="?page={{ Blogs.previous_page_number }}" style="background: rgb(17, 176, 216);color:white;border-radius:5px;border-color: red;width: 10%;padding:5px 5px 5px 5px">Trước</a>
+                    {% endif %}           
                     <span class="current">
-                        Page {{ Blogs.number }} of {{ Blogs.paginator.num_pages }}.
-                    </span>
-            
+                        Trang {{ Blogs.number }} of {{ Blogs.paginator.num_pages }}.
+                    </span>           
                     {% if Blogs.has_next %}
-                        <a href="?page={{ Blogs.next_page_number }}">next</a>
+                        <a href="?page={{ Blogs.next_page_number }}" style="background: rgb(17, 176, 216);color:white;border-radius:5px;border-color: red;width: 10%;padding:5px 5px 5px 5px">Sau</a>
                     {% endif %}
                 </span>
             </div>
